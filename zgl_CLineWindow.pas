@@ -75,6 +75,7 @@ end;
 procedure TGraphicalWindow.Initialize;
 begin
   fWindowTitle := TWindowTitle.Create(self, '');
+  WindowTitle.Parent := self;
 end;
 
 procedure TGraphicalWindow.DrawFrame;
@@ -102,6 +103,7 @@ end;
 procedure TGraphicalWindow.Draw;
 begin
   DrawFrame;
+  WindowTitle.Draw;
 end;
 
 procedure TGraphicalWindow.PlaceAtScreenCenter(const aFraction: single);

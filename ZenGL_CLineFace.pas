@@ -7,7 +7,8 @@ unit ZenGL_CLineFace;
 interface
 
 uses
-  zgl_CLineWindow, zgl_CLineWidget, zgl_CLineWindowTitle, LazarusPackageIntf;
+  zgl_CLineWindow, zgl_CLineWidget, zgl_CLineWindowTitle, zgl_CLineStyle, 
+  LazarusPackageIntf;
 
 implementation
 
