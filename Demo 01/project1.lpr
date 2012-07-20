@@ -1,3 +1,5 @@
+{$i ZenGL_ObjectFiles.inc}
+
 program project1;
 
 {$mode objfpc}{$H+}
@@ -7,7 +9,6 @@ uses
     cthreads,
   {$ENDIF}
   Classes,
-  Graphics,
   { you can add units after this }
   zgl_main,
   zgl_screen,
@@ -17,25 +18,23 @@ uses
   zgl_textures_tga,
   zgl_font,
   zgl_render_2d,
-  zgl_CLineWindow;
+  zgl_CLineWindow,
+  zgl_CLineStyle,
+  zgl_CLineLimeStlye,
+  zgl_CLineConsole;
 
 var
-  conwindow: TGraphicalWindow;
-  justFont: zglPFont;
+  style: TFaceStyle;
+  conwindow: TConsoleWindow;
 
 procedure DoOnEngineInitialize;
 begin
-  justFont := font_LoadFromFile('Consolas-10pt.zfi');
-  conwindow := TGraphicalWindow.Create(nil);
+  style := CreateCLineLimeStyle('LimeStyle\', nil);
+  conwindow := TConsoleWindow.Create(nil);
+  conwindow.LoadStyle(style);
   conwindow.Title := 'Типа консоль';
-  conwindow.WindowTitle.Font := justFont;
   // fill 80% of the screen with our precious console window
   conwindow.PlaceAtScreenCenter(0.8);
-  // Assign colors
-  conwindow.FrameColor := clLime; // why not
-  conwindow.WindowTitle.BackgroundColor := clLime;
-  conwindow.WindowTitle.FontColor := clBlack;
-  conwindow.Font := justFont;
 end;
 
 procedure DoOnEngineDraw;
@@ -48,10 +47,11 @@ end;
 procedure DoOnEngineFinalize;
 begin
   conwindow.Free;
+  style.Free;
 end;
 
 begin
-  scr_SetOptions(800, 600, REFRESH_DEFAULT, false, false);
+  scr_SetOptions(1024, 720, REFRESH_DEFAULT, false, false);
   zgl_Reg(SYS_LOAD, @DoOnEngineInitialize);
   zgl_Reg(SYS_DRAW, @DoOnEngineDraw);
   zgl_Reg(SYS_EXIT, @DoOnEngineFinalize);

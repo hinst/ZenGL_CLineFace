@@ -33,23 +33,24 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="ZenGL_Package"/>
       </Item1>
       <Item2>
-        <PackageName Value="ZenGL_Package"/>
-      </Item2>
-      <Item3>
         <PackageName Value="ZenGL_CLineFace"/>
-      </Item3>
+      </Item2>
     </RequiredPackages>
-    <Units Count="1">
+    <Units Count="2">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="project1"/>
       </Unit0>
+      <Unit1>
+        <Filename Value="ZenGL_ObjectFiles.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit1>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -60,10 +61,22 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\..\ZenGL\zengl-src-0.3.0rc2\src;..\..\ZenGL\zengl-src-0.3.0rc2\lib\jpeg\$(TargetCPU)-$(TargetOS);..\..\ZenGL\zengl-src-0.3.0rc2\lib\msvcrt\$(TargetCPU);..\..\ZenGL\zengl-src-0.3.0rc2\lib\ogg\$(TargetCPU)-$(TargetOS);..\..\ZenGL\zengl-src-0.3.0rc2\lib\theora\$(TargetCPU)-$(TargetOS);..\..\ZenGL\zengl-src-0.3.0rc2\lib\zlib\$(TargetCPU)-$(TargetOS);..\..\ZenGL\zengl-src-0.3.0rc2\lib\zip\$(TargetCPU)-$(TargetOS)"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <CodeGeneration>
+      <Checks>
+        <IOChecks Value="True"/>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+        <StackChecks Value="True"/>
+      </Checks>
+      <VerifyObjMethodCallValidity Value="True"/>
+    </CodeGeneration>
     <Other>
+      <Verbosity>
+        <ShowDefMacros Value="True"/>
+        <ShowSummary Value="True"/>
+      </Verbosity>
       <CompilerMessages>
         <MsgFileName Value=""/>
       </CompilerMessages>

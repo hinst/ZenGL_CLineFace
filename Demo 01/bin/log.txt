@@ -1,9 +1,9 @@
 ==================================
 === ZenGL 0.3 RC2 (2012.07.01) ===
 ==================================
-[00000001ms] Begin
-[00000005ms] Current mode: 1280 x 1024
-[00000228ms] wglChoosePixelFormatARB: zDepth = 24; stencil = 0; fsaa = 0
+[00000000ms] Begin
+[00000002ms] Current mode: 1280 x 1024
+[00000221ms] wglChoosePixelFormatARB: zDepth = 24; stencil = 0; fsaa = 0
 [00000248ms] GL_VERSION: 4.2.0
 [00000248ms] GL_RENDERER: GeForce GT 430/PCIe/SSE2
 [00000248ms] GL_MAX_TEXTURE_SIZE: 16384
@@ -17,11 +17,12 @@
 [00000248ms] GL_EXT_FRAMEBUFFER_OBJECT: TRUE
 [00000248ms] WGL_PBUFFER: TRUE
 [00000248ms] Support WaitVSync: TRUE
-[00000248ms] Ogg: Initialized
-[00000248ms] Theora: Initialized
-[00000253ms] Texture loaded: "Consolas-10pt-page0.tga"
-[00003077ms] Average FPS: 1447
-[00003077ms] Timers to free: 1
-[00003077ms] Fonts to free: 1
-[00003078ms] Textures to free: 1
-[00003095ms] End
+[00000451ms] Ogg: Initialized
+[00000451ms] Theora: Initialized
+[00000631ms] Texture loaded: "LimeStyle\Consolas-10pt-page0.tga"
+[00000734ms] Texture loaded: "LimeStyle\Cambria-12pt-page0.tga"
+[00006595ms] Average FPS: 971
+[00006595ms] Timers to free: 1
+[00006595ms] Fonts to free: 2
+[00006597ms] Textures to free: 1
+[00006613ms] End

@@ -17,7 +17,7 @@
         <CompilerPath Value="$(CompPath)"/>
       </Other>
     </CompilerOptions>
-    <Files Count="4">
+    <Files Count="7">
       <Item1>
         <Filename Value="zgl_CLineWindow.pas"/>
         <UnitName Value="zgl_CLineWindow"/>
@@ -34,6 +34,18 @@
         <Filename Value="zgl_CLineStyle.pas"/>
         <UnitName Value="zgl_CLineStyle"/>
       </Item4>
+      <Item5>
+        <Filename Value="zgl_CLineLimeStlye.pas"/>
+        <UnitName Value="zgl_CLineLimeStlye"/>
+      </Item5>
+      <Item6>
+        <Filename Value="zgl_CLineConsole.pas"/>
+        <UnitName Value="zgl_CLineConsole"/>
+      </Item6>
+      <Item7>
+        <Filename Value="zgl_Colors.pas"/>
+        <UnitName Value="zgl_Colors"/>
+      </Item7>
     </Files>
     <Type Value="RunAndDesignTime"/>
     <RequiredPkgs Count="1">

@@ -8,7 +8,7 @@ interface
 
 uses
   zgl_CLineWindow, zgl_CLineWidget, zgl_CLineWindowTitle, zgl_CLineStyle, 
-  LazarusPackageIntf;
+  zgl_CLineLimeStlye, zgl_CLineConsole, zgl_Colors, LazarusPackageIntf;
 
 implementation
 

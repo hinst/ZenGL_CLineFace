@@ -5,8 +5,10 @@ unit zgl_CLineWindow;
 interface
 
 uses
-  Types, Classes, SysUtils,
-  {$REGION 'Use all the ZenGL stuff'}
+  Types,
+  Classes,
+  SysUtils,
+
   zgl_main,
   zgl_screen,
   zgl_window,
@@ -17,10 +19,10 @@ uses
   zgl_textures,
   zgl_font,
   zgl_text,
-  zgl_math_2d
-  {$ENDREGION},
+  zgl_math_2d,
   zgl_CLineWidget,
-  zgl_CLineWindowTitle
+  zgl_CLineWindowTitle,
+  zgl_CLineStyle
 ;
 
 type
@@ -29,9 +31,9 @@ type
 
   TGraphicalWindow = class(TWidget, ISupportsClientArea)
   public
-    constructor Create(const aOwner: TComponent);
+    constructor Create(const aOwner: TComponent); virtual;
+    procedure LoadStyle(const aStyle: TFaceStyle); virtual;
   private
-    fFont: zglPFont;
     fFrameColor: LongWord;
     fFrameWidth: single;
     fClientArea: zglTRect;
@@ -42,7 +44,6 @@ type
     procedure DrawFrame;
     function GetClientArea: zglPRect;
   public
-    property Font: zglPFont read fFont write fFont;
     property FrameColor: LongWord read fFrameColor write fFrameColor;
     property Title: string read GetTitle write SetTitle;
     property WindowTitle: TWindowTitle read fWindowTitle;
@@ -62,6 +63,12 @@ begin
   Initialize;
 end;
 
+procedure TGraphicalWindow.LoadStyle(const aStyle: TFaceStyle);
+begin
+  fFrameColor := aStyle.Window^.FrameColor;
+  WindowTitle.LoadStyle(aStyle.Window);
+end;
+
 function TGraphicalWindow.GetTitle: string;
 begin
   result := WindowTitle.Title;
@@ -74,7 +81,7 @@ end;
 
 procedure TGraphicalWindow.Initialize;
 begin
-  fWindowTitle := TWindowTitle.Create(self, '');
+  fWindowTitle := TWindowTitle.Create(self);
   WindowTitle.Parent := self;
 end;
 
@@ -94,6 +101,7 @@ begin
   fClientArea.Y := fArea.Y + 1;
   fClientArea.W := fArea.W - 2;
   fClientArea.H := fArea.H - 2;
+
   WindowTitle.Area^.X := fArea.X;
   WindowTitle.Area^.Y := fArea.Y;
   WindowTitle.Area^.W := fArea.W;

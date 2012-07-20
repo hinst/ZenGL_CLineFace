@@ -11,9 +11,12 @@ uses
 type
 
   TWindowStyle = record
+    TitleBackgroundColor: LongWord;
+    TitleFontColor: LongWord;
     TitleFont: zglPFont;
     HTitleGap: single;
     VTitleGap: single;
+    FrameColor: LongWord;
   end;
 
   PWindowStyle = ^TWindowStyle;
@@ -24,15 +27,21 @@ type
   private
     fStandardFont: zglPFont;
     fWindow: TWindowStyle;
+    function GetWindow: PWindowStyle;
   public
     property StandardFont: zglPFont read fStandardFont write fStandardFont;
-    property Window: TWindowStyle read fWindow write fWindow;
+    property Window: PWindowStyle read GetWindow;
     destructor Destroy; override;
   end;
 
 implementation
 
 { TFaceStyle }
+
+function TFaceStyle.GetWindow: PWindowStyle;
+begin
+  result := @fWindow;
+end;
 
 destructor TFaceStyle.Destroy;
 begin
