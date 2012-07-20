@@ -23,6 +23,7 @@ procedure DoOnEngineInitialize;
 begin
   conwindow := TGraphicalWindow.Create(nil);
   // fill 80% of the screen with our precious console window
+  conwindow.Title := 'Console Window';
   conwindow.PlaceAtScreenCenter(0.8);
   conwindow.FrameColor := clLime; // why not
   conwindow.Font := font_LoadFromFile('font.zfi');

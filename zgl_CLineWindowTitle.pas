@@ -25,6 +25,7 @@ type
     fFont: zglPFont;
     fTitle: string;
     const HeightMeasureStr = 'AZ';
+    const HorizontalGap = 1;
   public
     property BackgroundColor: LongWord read fBackgroundColor write fBackgroundColor;
     property FontColor: LongWord read fFontColor write fFontColor;
@@ -50,11 +51,12 @@ end;
 procedure TWindowTitle.UpdateArea;
 begin
   fArea.H := text_GetHeight(Font, TGraphicalWindow(Parent).Area^.W, HeightMeasureStr);
+  fArea.H += 2*HorizontalGap;
 end;
 
 procedure TWindowTitle.Draw;
 begin
-  pr2d_Rect(fArea.X, fArea.Y, fArea.W, fArea.H, BackgroundColor, 255, );
+  pr2d_Rect(fArea.X, fArea.Y, fArea.W, fArea.H, BackgroundColor, 255, PR2D_FILL);
 end;
 
 end.
